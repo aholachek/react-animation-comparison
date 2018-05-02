@@ -1,0 +1,39 @@
+{
+  "name": "updated-react-animation-comparison",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@storybook/addon-options": "^3.4.3",
+    "animejs": "^2.2.0",
+    "delay": "^2.0.0",
+    "gsap": "^1.19.1",
+    "normalize.css": "^8.0.0",
+    "popmotion": "^8.1.22",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-motion": "^0.5.0",
+    "react-motion-ui-pack": "^0.10.2",
+    "react-move": "^1.1.8",
+    "react-pose": "^1.5.2",
+    "react-scripts": "1.1.4",
+    "react-spring": "^5.0.1",
+    "react-transition-group": "^2.3.1",
+    "storybook-readme": "^2.0.2",
+    "velocity-animate": "^1.5.0",
+    "velocity-react": "^1.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^3.4.3",
+    "@storybook/addon-links": "^3.4.3",
+    "@storybook/react": "^3.4.3"
+  }
+}

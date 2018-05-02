@@ -1,0 +1,5 @@
+1. figure out cancelable anime animations
+2. add / remove card
+3. update gsap to new react transition group
+4. add popmotion example
+5. add react-spring example

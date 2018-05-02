@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+.card {
+  background-color: #3f51b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.card > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-card {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.animated-grid {
+  background-color: #6279ff;
+  max-width: 600px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-gap: 1rem;
+  max-width: 600px;
+  padding: 1rem;
+  margin: 0;
+}
+
+.btn {
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #bdbcbc;
+  background-color: #e8e8e8;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.btn:hover {
+  background-color: #d2d2d2;
+}
+
+.btn + .btn {
+  margin-left: 1rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 500ms forwards;
+}
+
+.p-4 {
+  padding: 1.5rem;
+}
