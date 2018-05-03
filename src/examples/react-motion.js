@@ -39,13 +39,14 @@ const AnimatedGridContents = props => {
   )
 }
 
-const AnimatedGrid = props => {
-  if (!props.items.length) return <div />
+const TransitionGrid = ({ items, visible }) => {
   return (
-    <div className="animated-grid">
-      <AnimatedGridContents items={props.items} />
-    </div>
+    visible && (
+      <div className="animated-grid">
+        <AnimatedGridContents items={items} />
+      </div>
+    )
   )
 }
 
-export default AnimatedGrid
+export default TransitionGrid

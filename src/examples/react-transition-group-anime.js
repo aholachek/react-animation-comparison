@@ -87,6 +87,8 @@ const animateCardOut = card =>
     duration: animationTimings.cardLeave
   })
 
+const animatingOut = false
+
 const TransitionGrid = props => {
   return (
     <Transition
@@ -95,7 +97,7 @@ const TransitionGrid = props => {
       addEndListener={(node, done) => node.addEventListener(ANIMATION_DONE_EVENT, done)}
       onEnter={animateGridIn}
       onExit={animateGridOut}
-      in={props.in}
+      in={props.visible}
     >
       <ul className="grid animated-grid">
         <TransitionGroup component={null}>
@@ -104,7 +106,7 @@ const TransitionGrid = props => {
               key={item}
               onEnter={animateCardIn}
               onExit={animateCardOut}
-              addEndListener={(node, done) => node.addEventListener(ANIMATION_DONE_EVENT, done)}
+              addEndListener={(node, done) => {node.addEventListener(ANIMATION_DONE_EVENT, done)}}
             >
               <li className="card" onClick={() => props.removeItem(item)}>
                 <div className="close-card">&#x2715;</div>

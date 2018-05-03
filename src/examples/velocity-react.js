@@ -15,7 +15,8 @@ const cardAnimationIn = velocityHelpers.registerEffect({
       },
       1,
       {
-        display: "flex"
+        display: "flex",
+        easing: "spring"
       }
     ]
   ]
@@ -31,44 +32,12 @@ const cardAnimationOut = velocityHelpers.registerEffect({
       },
       1,
       {
-        display: "flex"
+        display: "flex",
+        easing: "spring"
       }
     ]
   ]
 })
-
-const AnimatedGridContents = props => {
-  return (
-    <VelocityTransitionGroup
-      component="ul"
-      className="grid"
-      runOnMount
-      enter={{
-        animation: cardAnimationIn,
-        stagger: animationTimings.cardStagger,
-        drag: true,
-        delay: animationTimings.gridEnter
-      }}
-      // ========================================================
-      // velocity react is smart about applying the end stage of the leave animation
-      // (opacity : 0) to the enter animation
-      // ========================================================
-      leave={{
-        animation: cardAnimationOut,
-        stagger: animationTimings.cardStagger,
-        drag: true
-      }}
-    >
-      {props.items.map(item => {
-        return (
-          <div className="card" key={item}>
-            {item}
-          </div>
-        )
-      })}
-    </VelocityTransitionGroup>
-  )
-}
 
 const gridAnimationIn = velocityHelpers.registerEffect({
   defaultDuration: animationTimings.gridEnter,
@@ -76,7 +45,7 @@ const gridAnimationIn = velocityHelpers.registerEffect({
     [
       {
         opacity: [1, 0],
-        translateX: [0, -100],
+        translateX: [0, -1000],
         translateZ: 0
       },
       1,
@@ -90,38 +59,61 @@ const gridAnimationIn = velocityHelpers.registerEffect({
 
 const gridAnimationOut = velocityHelpers.registerEffect({
   defaultDuration: animationTimings.gridLeave,
-  delay: 2000,
   calls: [
     [
       {
-        opacity: 0,
-        translateX: 2000
+        opacity: [1, 0],
+        translateX: [0, 1000]
       },
       1,
       {
         display: "flex",
-        easing: "spring"
+        easing: "spring",
+        delay: 2000
       }
     ]
   ]
 })
 
-const AnimatedGrid = props => {
+const TransitionGrid = ({ visible, items, removeItem }) => {
   return (
     <VelocityTransitionGroup
       enter={{ animation: gridAnimationIn }}
-      leave={{ animation: gridAnimationOut, delay: 1000 }}
-      runOnMount
+      leave={{ animation: gridAnimationOut, delay: 500 }}
     >
-      {props.items.length ? (
+      {visible && (
         <div className="animated-grid">
-          <AnimatedGridContents items={props.items} />
+          <VelocityTransitionGroup
+            component="ul"
+            className="grid"
+            runOnMount
+            enter={{
+              animation: cardAnimationIn,
+              stagger: animationTimings.cardStagger,
+              drag: true,
+              delay: animationTimings.gridEnter
+            }}
+            // velocity react is smart about applying the end stage of the leave animation
+            // (opacity : 0) to the enter animation
+            leave={{
+              animation: cardAnimationOut,
+              stagger: animationTimings.cardStagger,
+              drag: true
+            }}
+          >
+            {items.map(item => {
+              return (
+                <div className="card" key={item} onClick={() => removeItem(item)}>
+                  <div className="close-card">&#x2715;</div>
+                  <div>{item}</div>
+                </div>
+              )
+            })}
+          </VelocityTransitionGroup>
         </div>
-      ) : (
-        <div />
       )}
     </VelocityTransitionGroup>
   )
 }
 
-export default AnimatedGrid
+export default TransitionGrid

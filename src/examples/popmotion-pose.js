@@ -27,9 +27,9 @@ const GridProps = {
     }
   },
   exit: {
-    x: -1000,
+    x: 1000,
     opacity: 0,
-    afterChildren: true,
+    delay: 800,
     staggerChildren: 50,
     transition: props => {
       if (props.keys === "opacity") {
@@ -73,7 +73,7 @@ const Item = posed.li(itemProps)
 // use the "pose group" component to manage enter and exit transitions from the DOM
 // https://popmotion.io/pose/api/posegroup/
 
-const TransitionGrid = ({ in: open, items, removeItem }) => {
+const TransitionGrid = ({ visible: open, items, removeItem }) => {
   return (
     <PoseGroup>
       {open && (

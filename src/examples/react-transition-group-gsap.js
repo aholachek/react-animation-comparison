@@ -38,7 +38,7 @@ const animateGridOut = gridContainer => {
   const cards = gridContainer.querySelectorAll(".card")
   const tl = new TimelineLite()
   tl
-    .staggerTo(cards, animationTimings.cardLeave / 1000, { autoAlpha: 0, y: -30 }, 0.1)
+    .staggerTo(cards, animationTimings.cardLeave / 1000, { autoAlpha: 0, y: -30 }, 0.15)
     .fromTo(
       gridContainer,
       animationTimings.gridLeave / 1000,
@@ -52,12 +52,13 @@ const animateCardIn = card => {
     card,
     animationTimings.cardEnter / 1000,
     {
-      y: 50,
+      y: -50,
       opacity: 0
     },
     {
       y: 0,
       opacity: 1,
+      ease: Elastic.easeOut,
       onComplete: () => triggerAnimationDoneEvent(card)
     }
   )
@@ -71,6 +72,7 @@ const animateCardOut = card => {
     {
       y: -50,
       opacity: 0,
+      ease: Elastic.easeOut,
       onComplete: () => triggerAnimationDoneEvent(card)
     }
   )
@@ -84,7 +86,7 @@ const TransitionGrid = props => {
       addEndListener={(node, done) => node.addEventListener(ANIMATION_DONE_EVENT, done)}
       onEnter={animateGridIn}
       onExit={animateGridOut}
-      in={props.in}
+      in={props.visible}
     >
       <ul className="grid animated-grid">
         <TransitionGroup component={null}>

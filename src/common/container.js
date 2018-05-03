@@ -3,15 +3,16 @@ import shuffle from "./shuffle"
 
 export default class Container extends Component {
   state = {
-    items: []
+    items: [],
+    visible: false
   }
 
   addItems = () => {
-    this.setState({ items: [1, 2, 3, 4, 5, 6, 7, 8] })
+    this.setState({ items: [1, 2, 3, 4, 5, 6, 7, 8], visible: true })
   }
 
-  emptyItems = () => {
-    this.setState({ items: [] })
+  removeGrid = () => {
+    this.setState({ visible: false })
   }
 
   addItem = () => {
@@ -26,16 +27,16 @@ export default class Container extends Component {
   }
 
   shuffleItems = () => {
-    this.setState({ items: shuffle(this.state.items) })
+    this.setState({ items: [...shuffle(this.state.items)] })
   }
 
   render() {
     return (
       <div className="p-4">
         <div>
-          {this.state.items.length ? (
+          {this.state.visible ? (
             <div>
-              <button className="btn" onClick={this.emptyItems}>
+              <button className="btn" onClick={this.removeGrid}>
                 view exit animation <small>(in theory lol)</small>
               </button>
               <button className="btn fade-in" onClick={this.addItem}>
@@ -54,7 +55,7 @@ export default class Container extends Component {
         <div>
           {this.props.render({
             items: this.state.items,
-            in: !!this.state.items.length,
+            visible: this.state.visible,
             addItem: this.addItem,
             removeItem: this.removeItem
           })}

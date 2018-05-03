@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.0.0-beta.44":
+"@babel/runtime@^7.0.0-beta.46":
   version "7.0.0-beta.46"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.46.tgz#466a9c0498f6d12d054a185981eef742d59d4871"
   dependencies:
@@ -2372,7 +2372,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.2, create-react-class@^15.6.2:
+create-react-class@^15.6.2:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -2564,11 +2564,15 @@ d3-ease@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/d3-ease/-/d3-ease-1.0.3.tgz#68bfbc349338a380c44d8acc4fbc3304aa2d8c0e"
 
-d3-interpolate@^1.1.5:
+d3-interpolate@^1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-1.1.6.tgz#2cf395ae2381804df08aa1bf766b7f97b5f68fb6"
   dependencies:
     d3-color "1"
+
+d3-timer@^1.0.4:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/d3-timer/-/d3-timer-1.0.7.tgz#df9650ca587f6c96607ff4e60cc38229e8dd8531"
 
 d@1:
   version "1.0.0"
@@ -3726,10 +3730,6 @@ gauge@~2.7.3:
 get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
-
-get-prefix@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/get-prefix/-/get-prefix-1.0.0.tgz#0d305448a4e3176f9c277175b14e16dbe6fba0b5"
 
 get-stdin@^4.0.1:
   version "4.0.1"
@@ -6665,7 +6665,7 @@ radium@^0.19.0:
     inline-style-prefixer "^2.0.5"
     prop-types "^15.5.8"
 
-raf@3.4.0, raf@^3.1.0, raf@^3.3.2:
+raf@3.4.0, raf@^3.1.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
   dependencies:
@@ -6810,23 +6810,6 @@ react-modal@^3.3.2:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
-react-motion-ui-pack@^0.10.2:
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/react-motion-ui-pack/-/react-motion-ui-pack-0.10.3.tgz#b92c369c25d3897ea39d04a4c67eb6c57ced22e3"
-  dependencies:
-    get-prefix "^1.0.0"
-    prop-types "^15.5.10"
-    react-motion "^0.4.5"
-
-react-motion@^0.4.5:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.4.8.tgz#23bb2dd27c2d8e00d229e45572d105efcf40a35e"
-  dependencies:
-    create-react-class "^15.5.2"
-    performance-now "^0.2.0"
-    prop-types "^15.5.8"
-    raf "^3.1.0"
-
 react-motion@^0.5.0:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.2.tgz#0dd3a69e411316567927917c6626551ba0607316"
@@ -6835,15 +6818,12 @@ react-motion@^0.5.0:
     prop-types "^15.5.8"
     raf "^3.1.0"
 
-react-move@^1.1.8:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/react-move/-/react-move-1.6.1.tgz#aeee5276b0421b457d6ccc31f9856313da9496b9"
+react-move@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/react-move/-/react-move-2.7.0.tgz#8f5b3d37cc614b9de90e1e2744c80a1e3ff2fcfd"
   dependencies:
-    d3-ease "^1.0.3"
-    d3-interpolate "^1.1.5"
-    deep-equal "^1.0.1"
-    performance-now "^2.1.0"
-    raf "^3.3.2"
+    d3-interpolate "^1.1.6"
+    d3-timer "^1.0.4"
 
 react-pose@^1.5.2:
   version "1.5.2"
@@ -6911,11 +6891,11 @@ react-split-pane@^0.1.77:
     prop-types "^15.5.10"
     react-style-proptype "^3.0.0"
 
-react-spring@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.0.1.tgz#cf45795842febda8f72a60884e927f04c920c870"
+react-spring@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-5.1.1.tgz#6d8425e6bccf7472e4daaa51431ca328e0c505ef"
   dependencies:
-    "@babel/runtime" "^7.0.0-beta.44"
+    "@babel/runtime" "^7.0.0-beta.46"
 
 react-style-proptype@^3.0.0:
   version "3.2.1"

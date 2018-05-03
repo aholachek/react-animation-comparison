@@ -1,4 +1,4 @@
-# Comparing the Ease of Use of Various React Animation Libraries
+# Comparing the Ease of Use of Different React Animation Libraries
 
 Read [the blog post](https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/) where I give a more in-depth discussion of this project.
 
@@ -6,9 +6,9 @@ Read [the blog post](https://www.freshtilledsoil.com/whats-the-most-developer-fr
 
 ### The Goal: to replicate this animation on entering and exiting react components:
 ![example animation](./src/example_react_animation.gif)
-1. Initially, when it is first rendered in React, the grid should animate in, followed by its children cards
-2. Cards can be added individually and should be animated in
-3. Cards can be removed individually and should be animated out
+1. Initially, when it is first rendered in React, the grid should animate in, followed by the staggered animation of its children cards
+Cards can be added individually to the cards array and should be animated in
+3. Cards can be removed individually from the cards array and should be animated out as they leave
 4. When the grid is removed from the DOM, it should wait for its children to animate out before animating itself and leaving the DOM 
 5. *Stretch goal*: When shuffled, the cards should smoothly transition to their new positions.
 
