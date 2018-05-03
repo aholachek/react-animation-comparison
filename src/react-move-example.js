@@ -6,7 +6,6 @@ import { easeElastic } from "d3-ease"
 import animationTimings from "./common/animationTimings"
 
 class TransitionGrid extends Component {
-  state = { gridAnimatedIn: false }
   render() {
     const { visible, items, removeItem } = this.props
 
@@ -14,7 +13,7 @@ class TransitionGrid extends Component {
       <Animate
         show={visible}
         start={{
-          // values have to be in an array for some reason or else they wont tween (?)
+          // values have to be in an array for some reason or else they won't tween (?)
           translateX: [-100],
           opacity: [1]
         }}
@@ -26,7 +25,6 @@ class TransitionGrid extends Component {
           {
             translateX: [0],
             timing: { duration: animationTimings.gridEnter, ease: easeElastic },
-            events: { end: () => this.setState({ gridAnimatedIn: true }) }
           }
         ]}
         leave={[
@@ -36,7 +34,6 @@ class TransitionGrid extends Component {
           {
             translateX: [1000],
             timing: { duration: animationTimings.gridLeave, ease: easeElastic  },
-            events: { end: () => this.setState({ gridAnimatedIn: false })}
           }
         ]}
       >
