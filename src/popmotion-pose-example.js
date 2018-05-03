@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import posed, { PoseGroup } from "react-pose"
 import { easing, tween, spring } from "popmotion"
-import animationTimings from "../common/animationTimings"
+import animationTimings from "./common/animationTimings"
 
 const GridProps = {
   enter: {

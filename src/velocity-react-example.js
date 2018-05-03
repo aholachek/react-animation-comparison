@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { VelocityTransitionGroup, velocityHelpers } from "velocity-react"
 import "velocity-animate/velocity.ui"
-import animationTimings from "../common/animationTimings"
+import animationTimings from "./common/animationTimings"
 
 const cardAnimationIn = velocityHelpers.registerEffect({
   defaultDuration: animationTimings.cardEnter,

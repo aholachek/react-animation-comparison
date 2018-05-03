@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import anime from "animejs"
-import animationTimings from "../common/animationTimings"
+import animationTimings from "./common/animationTimings"
 import Transition from "react-transition-group/Transition"
 import TransitionGroup from "react-transition-group/TransitionGroup"
 

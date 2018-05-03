@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import NodeGroup from "react-move/NodeGroup"
 import Animate from "react-move/Animate"
 import { easeElastic } from "d3-ease"
-import animationTimings from "../common/animationTimings"
+import animationTimings from "./common/animationTimings"
 
 class TransitionGrid extends Component {
   state = { gridAnimatedIn: false }
