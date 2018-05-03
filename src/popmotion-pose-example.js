@@ -7,12 +7,9 @@ const GridProps = {
   enter: {
     x: 0,
     opacity: 1,
-    // wait until grid has animated in before animating card children
     delayChildren: animationTimings.gridEnter,
-    // stagger each child's animation
     staggerChildren: 80,
     transition: props => {
-      // linearly animate opacity, otherwise use a springy transition
       if (props.keys === "opacity") {
         return tween({
           ...props,
@@ -70,7 +67,6 @@ const itemProps = {
 
 const Item = posed.li(itemProps)
 
-// use the "pose group" component to manage enter and exit transitions from the DOM
 // https://popmotion.io/pose/api/posegroup/
 
 const TransitionGrid = ({ visible: open, items, removeItem }) => {
