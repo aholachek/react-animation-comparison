@@ -15,7 +15,8 @@
 ### Why It's Hard
 The example sequences the enter and exit of a parent and its child elements. Not only that, but the enter and exit animations are not simple mirrors of each other (as some libraries seem to expect). The cards animating in and out are initially staggered, but adding or removing cards one-by-one should also result in a fluid animation.
 
-### The Arbitrary Limit: Spend as little time as possible learning a library's API and trying to implement the animation.
+### The Arbitrary Limit: 
+Spend as little time as possible learning a library's API and trying to implement the animation.
 
 ### The Results (Roughly in order of preference)
 
