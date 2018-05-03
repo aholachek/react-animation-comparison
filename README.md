@@ -20,8 +20,8 @@ The example sequences the enter and exit of a parent and its child elements. Not
 ### The Results (Roughly in order of preference)
 
 1.  **popmotion-pose**
-* In terms of pure ease of use, this one was the winner for me even though it suffered from some limitations in its API (for instance, it was hard to get the exit animation to go in the opposite direction of the enter animation)
-* The automatic FLIP animations are pretty cool, and the default easings made the animations look great with very little additional work.
+* In terms of pure ease of use, this one was the winner for me even though it suffered from some limitations in its API (for instance, it was hard to get the grid's exit animation to go in the opposite direction of the enter animation)
+* The automatic FLIP animations are pretty cool (try shuffling the cards to see it in action), and the default easings made the animations look great with very little additional work.
 * The docs were great!
 * [my animation attempt](https://alex.holachek.com/?selectedKind=Animation%20Examples&selectedStory=Popmotion%20Pose&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/popmotion-pose-example.js)
@@ -45,7 +45,7 @@ The example sequences the enter and exit of a parent and its child elements. Not
 
 4.  **react-spring**
 
-* This newcomer melds the powers of `react-motion` and `react-animated` offers a user-friendly API (and the docs have tons of cool examples).
+* This newcomer melds the powers of `react-motion` and `react-animated` into one user-friendly library (and the docs have tons of cool examples).
 * React-spring's keyframes API, which I used in my example to sequence animations, is intuitive and makes great use of async/await but is marked as experimental in the docs.
 * There seemed to be a serious memory leak created when adding new cards, though this could have been something I did incorrectly.
 * I couldn't quite get the whole thing working the way I wanted to.
