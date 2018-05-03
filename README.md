@@ -7,10 +7,10 @@
 ![example animation](./src/assets/react-animation-comparison.gif)
 
 1.  Initially, when it is first rendered in React, the grid should animate in, followed by the staggered animation of its children cards
-    Cards can be added individually to the cards array and should be animated in
-2.  Cards can be removed individually from the cards array and should be animated out as they leave
-3.  When the grid is removed from the DOM, it should wait for its children to animate out before animating itself and leaving the DOM
-4.  _Stretch goal_: When shuffled, the cards should smoothly transition to their new positions.
+2. Cards can be added individually to the cards array and should be animated in
+3.  Cards can be removed individually from the cards array and should be animated out as they leave
+4.  When the grid is removed from the DOM, it should wait for its children to animate out before animating itself and leaving the DOM
+5.  _Stretch goal_: When shuffled, the cards should smoothly transition to their new positions.
 
 ## Why It's Hard
 The example sequences the enter and exit of a parent and its child elements. Not only that, but the enter and exit animations are not simple mirrors of each other (as some libraries seem to expect). The cards animating in and out are initially staggered, but adding or removing cards one-by-one should also result in a fluid animation.
