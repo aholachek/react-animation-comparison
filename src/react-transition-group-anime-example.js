@@ -8,6 +8,9 @@ import TransitionGroup from "react-transition-group/TransitionGroup"
 
 // we will trigger an event on the actual grid node after the exit animation completes
 // to let the transitiongroup know that it can be removed from the DOM
+
+// this is the only way to let react-transition-group delegate timing
+// to the JavaScript animation (as far as I can tell?) unfortunately
 const ANIMATION_DONE_EVENT = "animation::done"
 const triggerAnimationDoneEvent = node => node.dispatchEvent(new Event(ANIMATION_DONE_EVENT))
 

@@ -69,10 +69,10 @@ const Item = posed.li(itemProps)
 
 // https://popmotion.io/pose/api/posegroup/
 
-const TransitionGrid = ({ visible: open, items, removeItem }) => {
+const TransitionGrid = ({ visible, items, removeItem }) => {
   return (
     <PoseGroup>
-      {open && (
+      {visible && (
         <Grid className="grid animated-grid" key="grid">
           <PoseGroup>
             {items.map(item => (
