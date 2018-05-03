@@ -1,16 +1,16 @@
 # Comparing the Ease of Use of Different React Animation Libraries
 
-**Update:** I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples and updating `react-transition-group` from V1 to V2. 
+I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples, updating `react-transition-group` from V1 to V2, and updating the other examples as necessary. 
 
 ### The Goal: to replicate this animation on entering and exiting react components:
 
 ![example animation](./src/assets/react-animation-comparison.gif)
 
-1.  Initially, when it is first rendered in React, the grid should animate in, followed by the staggered animation of its children cards
+1. Initially, when it is first rendered in React, the grid should animate in, followed by the staggered animation of its children cards
 2. Cards can be added individually to the cards array and should be animated in
-3.  Cards can be removed individually from the cards array and should be animated out as they leave
-4.  When the grid is removed from the DOM, it should wait for its children to animate out before animating itself and leaving the DOM
-5.  _Stretch goal_: When shuffled, the cards should smoothly transition to their new positions.
+3. Cards can be removed individually from the cards array and should be animated out as they leave
+4. When the grid is removed from the DOM, it should wait for its children to animate out before animating itself and leaving the DOM
+5. _Stretch goal_: When shuffled, the cards should smoothly transition to their new positions.
 
 ### Why It's Hard
 The example sequences the enter and exit of a parent and its child elements. Not only that, but the enter and exit animations are not simple mirrors of each other (as some libraries seem to expect). The cards animating in and out are initially staggered, but adding or removing cards one-by-one should also result in a fluid animation.
@@ -20,10 +20,11 @@ Spend as little time as possible learning a library's API and trying to implemen
 
 ### The Results (Roughly in order of preference)
 
-1.  **popmotion-pose**
-* In terms of pure ease of use, this one was the winner for me even though it suffered from some limitations in its API (for instance, it was hard to get the grid's exit animation to go in the opposite direction of the enter animation)
-* The automatic FLIP animations are pretty cool (try shuffling the cards to see it in action), and the default easings made the animations look great with very little additional work.
-* The docs were great!
+1.  **react-pose**
+* In terms of pure ease of use, this one was the winner for me even though it suffered from some limitations (for instance, it was hard to get the grid's exit animation to go in the opposite direction of the enter animation)
+* The automatic FLIP animations are pretty cool (try shuffling the cards to see it in action), and the default easings made the animations look great.
+* I liked how the library automatically applies transitions to DOM elements for you instead of just tweening values and making you handle the style updates yourself.
+* The docs are excellent.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=Popmotion%20Pose&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/popmotion-pose-example.js)
 * [Popmotion Pose docs](https://popmotion.io/pose/)
@@ -31,6 +32,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 2.  **react-transition-group & animejs**
 
 * Using react-transition-group and a JavaScript animation library ended up being one of my favorite techniques, because it offered the flexibility to make custom, sequenced transitions.
+* Animejs is lightweight, ES2015-friendly, and open source, and I find the imperative API intuitive for complex sequenced animations.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20animejs&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-anime-example.js)
 * [React transition group docs](http://reactcommunity.org/react-transition-group/)
@@ -38,7 +40,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 
 3.  **react-transition-group & gsap**
 
-* Very much like the animejs example. Animejs is more lightweight, ES2015-friendly, and open source, but GSAP is the standard for powerful JavaScript animation libraries.
+* Very much like the animejs example, just with the animation library swapped out. GSAP is not open source and it's older and a little heavier than animejs, but it's battle-tested and powerful.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-gsap-example.js)
 * [React transition group docs](http://reactcommunity.org/react-transition-group/)
