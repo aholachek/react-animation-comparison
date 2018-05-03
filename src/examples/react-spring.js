@@ -13,7 +13,7 @@ class TransitionGrid extends Component {
       })
       await delay(500)
       await this.content(Trail, { from: { y: -120, opacity: 0 }, to: { y: 0, opacity: 1 } })
-    } else if (prevProps.in && !this.props.in) {
+    } else if (prevProps.visible && !this.props.visible) {
       this.content(Trail, { to: { y: -120, opacity: 0 } })
       await delay(500)
       await this.container(Spring, { to: { x: -100, opacity: 0 }, config: config.slow })
