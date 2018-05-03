@@ -55,7 +55,7 @@ The example sequences the enter and exit of a parent and its child elements. Not
 
 5.  **react-move**
 
-* A lightweight library that helps D3 and React work together. It ended up not being quite flexible enough for the needs of this demo, though if the demo featured more traditionally D3-like interactions it would have been great.
+* A lightweight library that helps D3 and React work together. It ended up not being quite flexible enough for the needs of this task, though if the demo featured more traditionally D3-like interactions it would have been great.
 * [my animation attempt](https://alex.holachek.com/?selectedKind=Animation%20Examples&selectedStory=React-Move&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-move-example.js)
 * [react-move docs](https://react-move-example.js.org/#/)
