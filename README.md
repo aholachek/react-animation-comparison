@@ -45,9 +45,9 @@ The example sequences the enter and exit of a parent and its child elements. Not
 
 4.  **react-spring**
 
-* This newcomer melds the powers of `react-motion` and `react-animated` offers a user-friendly API (and the docs have tons of cool exammples).
-* React-spring's keyframes API, which I used in my example to sequence animations, is cool and intuitive but is marked as experimental in the docs.
-* There seemed to be a pretty serious memory leak created when adding new cards, though this could have been something I did incorrectly.
+* This newcomer melds the powers of `react-motion` and `react-animated` offers a user-friendly API (and the docs have tons of cool examples).
+* React-spring's keyframes API, which I used in my example to sequence animations, is intuitive and makes great use of async/await but is marked as experimental in the docs.
+* There seemed to be a serious memory leak created when adding new cards, though this could have been something I did incorrectly.
 * I couldn't quite get the whole thing working the way I wanted to.
 * [my animation attempt](https://alex.holachek.com/?selectedKind=Animation%20Examples&selectedStory=React-Spring&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-spring-example.js)
