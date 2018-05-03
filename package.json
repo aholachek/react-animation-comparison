@@ -1,7 +1,6 @@
 {
-  "name": "updated-react-animation-comparison",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-animation-comparison",
+  "version": "0.2.0",
   "dependencies": {
     "@storybook/addon-options": "^3.4.3",
     "animejs": "^2.2.0",
@@ -35,6 +34,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.3",
     "@storybook/addon-links": "^3.4.3",
-    "@storybook/react": "^3.4.3"
+    "@storybook/react": "^3.4.3",
+    "@storybook/storybook-deployer": "^2.3.0"
   }
 }
