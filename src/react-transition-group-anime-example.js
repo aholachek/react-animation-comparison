@@ -6,9 +6,6 @@ import animationTimings from "./common/animationTimings"
 import Transition from "react-transition-group/Transition"
 import TransitionGroup from "react-transition-group/TransitionGroup"
 
-// animejs documentation
-// https://github.com/juliangarnier/anime
-
 // we will trigger an event on the actual grid node after the exit animation completes
 // to let the transitiongroup know that it can be removed from the DOM
 const ANIMATION_DONE_EVENT = "animation::done"
@@ -63,7 +60,7 @@ const animateGridOut = (gridContainer, done) => {
       opacity: [1, 0],
       duration: animationTimings.gridLeave,
       complete: () => triggerAnimationDoneEvent(gridContainer),
-      offset: "-=200"
+      offset: "-=300"
     })
 }
 
