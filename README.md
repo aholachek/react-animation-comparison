@@ -1,8 +1,6 @@
 # Comparing the Ease of Use of Different React Animation Libraries
 
-Read [the blog post](https://www.freshtilledsoil.com/whats-the-most-developer-friendly-react-animation-library/) where I give a more in-depth discussion of this project.
-
-**Update:** I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples and updating `react-transition-group` from V1 to V2.
+**Update:** I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples and updating `react-transition-group` from V1 to V2. (Some links will be broken from the incoming blog post until I get a chance to fix them.)
 
 ### The Goal: to replicate this animation on entering and exiting react components:
 
