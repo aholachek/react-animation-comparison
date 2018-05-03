@@ -1,3 +1,0 @@
-1. figure out cancelable anime animations
-2. add / remove card
-5. add react-spring example

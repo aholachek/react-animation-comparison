@@ -8,23 +8,25 @@ import animationTimings from "../common/animationTimings"
 class TransitionGrid extends Component {
   state = { gridAnimatedIn: false }
   render() {
-    const { visble: show, items, removeItem } = this.props
+    const { visible, items, removeItem } = this.props
 
     return (
       <Animate
-        show={show}
+        show={visible}
         start={{
-          translateX: [-1000],
-          opacity: [0]
+          // values have to be in an array for some reason or else they wont tween (?)
+          translateX: [-100],
+          opacity: [1]
         }}
         enter={[
           {
-            opacity: [0, 1]
+            opacity: [1],
+            timing: { duration: animationTimings.gridEnter }
           },
           {
-            translateX: [-1000, 0],
+            translateX: [0],
             timing: { duration: animationTimings.gridEnter, ease: easeElastic },
-            events: { end: () => setTimeout(() => this.setState({ gridAnimatedIn: true }), 300) }
+            events: { end: () => this.setState({ gridAnimatedIn: true }) }
           }
         ]}
         leave={[
@@ -32,19 +34,19 @@ class TransitionGrid extends Component {
             opacity: [0]
           },
           {
-            translateX: [0, 1000],
-            timing: { duration: animationTimings.gridLeave, ease: easeElastic },
-            events: { end: () => this.setState({ gridAnimatedIn: false }) }
+            translateX: [1000],
+            timing: { duration: animationTimings.gridLeave, ease: easeElastic  },
+            events: { end: () => this.setState({ gridAnimatedIn: false })}
           }
         ]}
       >
-        {data => {
+        {({ opacity, translateX }) => {
           return (
             <div
               className="animated-grid"
-              style={{ opacity: data.opacity, transform: `translateX(${data.translateX}px)` }}
+              style={{ opacity: opacity, transform: `translateX(${translateX}px)` }}
             >
-              {this.state.gridAnimatedIn ? (
+              {
                 <NodeGroup
                   data={items}
                   keyAccessor={item => item}
@@ -58,7 +60,7 @@ class TransitionGrid extends Component {
                   enter={(item, i) => {
                     return [
                       {
-                        opacity: [0, 1],
+                        opacity: [1],
                         timing: {
                           duration: animationTimings.cardEnter,
                           delay: i * 100
@@ -76,8 +78,8 @@ class TransitionGrid extends Component {
                   }}
                   leave={(item, i) => {
                     return {
-                      opacity: [0],
-                      translateY: [-50],
+                      opacity: 0,
+                      translateY: -50,
                       timing: { delay: (items.length - i) * 100 }
                     }
                   }}
@@ -105,7 +107,7 @@ class TransitionGrid extends Component {
                     )
                   }}
                 </NodeGroup>
-              ) : null}
+              }
             </div>
           )
         }}

@@ -5,7 +5,7 @@ import { Transition, Spring, Trail, Keyframes, animated, config } from "react-sp
 
 class TransitionGrid extends Component {
   async componentDidUpdate(prevProps, prevState) {
-    if (!prevProps.in && this.props.in) {
+    if (!prevProps.visible && this.props.visible) {
       this.container(Spring, {
         from: { x: -100, opacity: 0 },
         to: { x: 0, opacity: 1 },
@@ -21,7 +21,7 @@ class TransitionGrid extends Component {
   }
 
   render() {
-    const { items, removeItem } = this.props
+    const { items, removeItem, visible } = this.props
     return (
       <Keyframes native script={next => (this.container = next)}>
         {({ x, opacity }) => (
