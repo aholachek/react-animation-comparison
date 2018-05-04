@@ -23,7 +23,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 1.  **react-transition-group & animejs**
 
 * Using react-transition-group and a JavaScript animation library ended up being one of my favorite techniques, because it offered the flexibility to make custom, sequenced transitions.
-* Animejs is lightweight and open source, and I find the imperative API more intuitive than the typical React approach for complex sequenced animations.
+* Animejs is lightweight and open source, and I find the imperative API more intuitive than the typical React approach for multiple complex animations.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20animejs&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-anime-example.js)
 * [React transition group docs](http://reactcommunity.org/react-transition-group/)
@@ -31,7 +31,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 
 2.  **react-transition-group & gsap**
 
-* Basically the same as the animejs example, just with the animation library swapped out. GSAP is not open source and it's older and heavier than animejs, but it's battle-tested and powerful.
+* Basically the same as the animejs example, just with the animation library swapped out. GSAP has a less permissive license and it's older and heavier than animejs, but it's battle-tested and powerful.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-gsap-example.js)
 * [React transition group docs](http://reactcommunity.org/react-transition-group/)
