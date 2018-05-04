@@ -4,6 +4,10 @@ import { easing, tween, spring } from "popmotion"
 import animationTimings from "./common/animationTimings"
 
 const GridProps = {
+  preEnter: {
+    x: -1000,
+    opacity: 0
+  },
   enter: {
     x: 0,
     opacity: 1,
@@ -71,16 +75,18 @@ const Item = posed.li(itemProps)
 
 const TransitionGrid = ({ visible, items, removeItem }) => {
   return (
-    <PoseGroup>
+    <PoseGroup preEnterPose="preEnter">
       {visible && (
         <Grid className="grid animated-grid" key="grid">
           <PoseGroup>
-            {items.map(item => (
-              <Item className="card" key={item} onClick={() => removeItem(item)}>
-                <div className="close-card">&#x2715;</div>
-                <div>{item}</div>
-              </Item>
-            ))}
+            {items.map(item => {
+              return (
+                <Item className="card" key={item} onClick={() => removeItem(item)}>
+                  <div className="close-card">&#x2715;</div>
+                  <div>{item}</div>
+                </Item>
+              )
+            })}
           </PoseGroup>
         </Grid>
       )}
