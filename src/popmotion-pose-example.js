@@ -74,6 +74,7 @@ const Item = posed.li(itemProps)
 // https://popmotion.io/pose/api/posegroup/
 
 const TransitionGrid = ({ visible, items, removeItem }) => {
+  console.log(items)
   return (
     <PoseGroup preEnterPose="preEnter">
       {visible && (
