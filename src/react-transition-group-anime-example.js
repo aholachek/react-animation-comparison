@@ -18,6 +18,11 @@ const triggerAnimationDoneEvent = node => node.dispatchEvent(new Event(ANIMATION
 let currentAnimation = null
 const clearCurrentAnimation = () => currentAnimation && currentAnimation.pause()
 
+const getOpacity = animatingIn => ({
+  value: animatingIn ? [0, 1] : [1, 0],
+  easing: "easeOutExpo"
+})
+
 const animateGridIn = (gridContainer, done) => {
   clearCurrentAnimation()
   const cards = gridContainer.querySelectorAll(".card")
@@ -31,13 +36,13 @@ const animateGridIn = (gridContainer, done) => {
     .add({
       targets: gridContainer,
       translateX: [-1000, 0],
-      opacity: [0, 1],
+      opacity: getOpacity(true),
       duration: animationTimings.gridEnter
     })
     .add({
       targets: cards,
       duration: 800,
-      opacity: [0, 1],
+      opacity: getOpacity(true),
       translateY: [-30, 0],
       complete: () => triggerAnimationDoneEvent(gridContainer),
       delay: (el, i, l) => i * 100
@@ -53,14 +58,14 @@ const animateGridOut = (gridContainer, done) => {
     .add({
       targets: cards,
       duration: 700,
-      opacity: [1, 0],
+      opacity: getOpacity(false),
       translateY: -30,
       delay: (el, i) => i * 100
     })
     .add({
       targets: gridContainer,
       translateX: 1000,
-      opacity: [1, 0],
+      opacity: getOpacity(false),
       duration: animationTimings.gridLeave,
       complete: () => triggerAnimationDoneEvent(gridContainer),
       offset: "-=300"
@@ -70,10 +75,9 @@ const animateGridOut = (gridContainer, done) => {
 const animateCardIn = card =>
   anime({
     targets: card,
-    opacity: [0, 1],
+    opacity: getOpacity(true),
     translateY: [50, 0],
     complete: () => triggerAnimationDoneEvent(card),
-    easing: "easeOutExpo",
     duration: animationTimings.cardEnter
   })
 
@@ -81,9 +85,8 @@ const animateCardOut = card =>
   anime({
     targets: card,
     translateY: -10,
-    opacity: 0,
+    opacity: getOpacity(false),
     complete: () => triggerAnimationDoneEvent(card),
-    easing: "easeOutExpo",
     duration: animationTimings.cardLeave
   })
 
@@ -106,7 +109,9 @@ const TransitionGrid = props => {
               key={item}
               onEnter={animateCardIn}
               onExit={animateCardOut}
-              addEndListener={(node, done) => {node.addEventListener(ANIMATION_DONE_EVENT, done)}}
+              addEndListener={(node, done) => {
+                node.addEventListener(ANIMATION_DONE_EVENT, done)
+              }}
             >
               <li className="card" onClick={() => props.removeItem(item)}>
                 <div className="close-card">&#x2715;</div>
