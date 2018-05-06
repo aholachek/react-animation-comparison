@@ -81,7 +81,6 @@ const itemProps = {
 const Item = posed.li(itemProps)
 
 // https://popmotion.io/pose/api/posegroup/
-
 const TransitionGrid = ({ visible, items, removeItem }) => {
   return (
     <PoseGroup preEnterPose="preEnter">
@@ -90,7 +89,7 @@ const TransitionGrid = ({ visible, items, removeItem }) => {
           <PoseGroup preEnterPose="preEnter">
             {items.map(item => {
               return (
-                <Item className="card" key={item} onClick={() => removeItem(item)} preEnterPose="preEnter">
+                <Item className="card" key={item} onClick={() => removeItem(item)}>
                   <div className="close-card">&#x2715;</div>
                   <div>{item}</div>
                 </Item>
