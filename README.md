@@ -7,13 +7,13 @@ I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` exam
 ![example animation](./src/assets/react-animation-comparison.gif)
 
 1. Initially, when it is first rendered in React, the grid should animate in, followed by the staggered animation of its children cards
-2. New Cards can be added individually to the cards array and should be animated in
+2. New cards can be added individually to the cards array and should be animated in
 3. Cards can be removed from the cards array and should be animated out as they leave
 4. When the grid is removed from the DOM, it should wait for its children to animate out before animating itself and leaving the DOM
 5. _Stretch goal_: When shuffled, the cards should smoothly transition to their new positions.
 
 ### Why It's Hard
-The example sequences the "enter" and "exit" animations of both a parent and its child elements, requiring coordination between different components. Not only that, but the enter and exit animations are not simple mirrors of each other (as many libraries expect). The cards animating in and out are initially staggered, but adding or removing cards one-by-one should also result in a fluid animation with no delay.
+The example sequences the "enter" and "exit" animations of both a parent and its child elements, requiring coordination between different components. Not only that, but the enter and exit animations are not simple mirrors of each other (as many libraries expect). The positions of the grid and cards should be animated with a slightly gooey-feeling elastic easing, but opacity changes should have a linear easing. The cards animating in and out are initially staggered, but adding or removing cards one-by-one should also result in a fluid animation with no delay.
 
 ### The Arbitrary Limit: 
 Spend as little time as possible learning a library's API and trying to implement the animation.
@@ -51,7 +51,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 
 * This newcomer melds the powers of `react-motion` and `react-animated` into one user-friendly library (and the docs have tons of cool examples).
 * React-spring's keyframes API, which I used in my example to sequence animations, is intuitive and makes great use of async/await but is marked as experimental in the docs.
-* There seemed to be a serious memory leak created when adding new cards, though this could have been something I did incorrectly.
+* **Bug** There seemed to be a serious memory leak created when adding new cards, though this could have been something I did incorrectly.
 * I couldn't quite get the whole thing working the way I wanted to.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Spring&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-spring-example.js)
