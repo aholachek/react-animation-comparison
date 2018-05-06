@@ -50,7 +50,16 @@ const GridProps = {
 
 const Grid = posed.ul(GridProps)
 
+
 const itemProps = {
+  preEnter: {
+    y: -50,
+    opacity: 0,
+    transition: props =>
+      spring({
+        ...props
+      })
+  },
   enter: {
     y: 0,
     opacity: 1,
@@ -74,15 +83,14 @@ const Item = posed.li(itemProps)
 // https://popmotion.io/pose/api/posegroup/
 
 const TransitionGrid = ({ visible, items, removeItem }) => {
-  console.log(items)
   return (
     <PoseGroup preEnterPose="preEnter">
       {visible && (
         <Grid className="grid animated-grid" key="grid">
-          <PoseGroup>
+          <PoseGroup preEnterPose="preEnter">
             {items.map(item => {
               return (
-                <Item className="card" key={item} onClick={() => removeItem(item)}>
+                <Item className="card" key={item} onClick={() => removeItem(item)} preEnterPose="preEnter">
                   <div className="close-card">&#x2715;</div>
                   <div>{item}</div>
                 </Item>
