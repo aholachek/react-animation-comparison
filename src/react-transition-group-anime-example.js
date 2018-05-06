@@ -20,7 +20,8 @@ const clearCurrentAnimation = () => currentAnimation && currentAnimation.pause()
 
 const getOpacity = animatingIn => ({
   value: animatingIn ? [0, 1] : [1, 0],
-  easing: "easeOutExpo"
+  easing: "linear",
+  duration: 300
 })
 
 const animateGridIn = (gridContainer, done) => {
