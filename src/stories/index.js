@@ -11,14 +11,13 @@ import ReactSpringExample from "../react-spring-example"
 import Container from "../common/container"
 
 import "normalize.css"
-
 import "../common/index.css"
 
 storiesOf("Animation Examples", module)
-  .add("Popmotion Pose", () => <Container render={PopmotionPoseExample} />)
-  .add("React-Spring", () => <Container render={ReactSpringExample} />)
-  .add("React-Transition-Group + GSAP", () => <Container render={ReactTransitionGroup} />)
   .add("React-Transition-Group + animejs", () => <Container render={AnimeExample} />)
+  .add("Popmotion Pose", () => <Container render={PopmotionPoseExample} />)
+  .add("React-Transition-Group + GSAP", () => <Container render={ReactTransitionGroup} />)
+  .add("React-Spring", () => <Container render={ReactSpringExample} />)
   .add("React-Move", () => <Container render={ReactMove} />)
   .add("Velocity-React", () => <Container render={VelocityReact} />)
   .add("React-Motion", () => <Container render={ReactMotion} />)
