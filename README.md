@@ -1,4 +1,4 @@
-# Comparing the Ease of Use of Different React Animation Libraries
+# What's the most developer-friendly React animation library?
 
 I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples, updating `react-transition-group` from V1 to V2, and revising the other examples as necessary. 
 
