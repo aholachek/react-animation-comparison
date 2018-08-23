@@ -1,6 +1,6 @@
 # What's the most developer-friendly React animation library?
 
-I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples, updating `react-transition-group` from V1 to V2, and revising the other examples as necessary. 
+I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples, updating `react-transition-group` from V1 to V2, and revising the other examples as necessary.
 
 ### The Goal: to replicate this animation on entering and exiting react components:
 
@@ -15,7 +15,7 @@ I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` exam
 ### Why It's Hard
 The example sequences the "enter" and "exit" animations of both a parent and its child elements, requiring coordination between different components. Not only that, but the enter and exit animations are not simple mirrors of each other (as many libraries expect). The positions of the grid and cards should be animated with a slightly gooey-feeling elastic easing, but opacity changes should have a linear easing. The cards animating in and out are initially staggered, but adding or removing cards one-by-one should also result in a fluid animation with no delay.
 
-### The Arbitrary Limit: 
+### The Arbitrary Limit:
 Spend as little time as possible learning a library's API and trying to implement the animation.
 
 ### The Results (Roughly in order of preference)
@@ -29,7 +29,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 * [React transition group docs](http://reactcommunity.org/react-transition-group/)
 * [Anime docs](https://github.com/juliangarnier/anime)
 
-2.  **react-pose** 
+2.  **react-pose**
 * In terms of pure ease of use and beginner-friendliness, this one was the winner for me.
 * The automatic FLIP animations are pretty cool (try shuffling the cards to see it in action), and the default easings made the animations look great.
 * I liked how the library automatically applies transitions to DOM elements for you instead of just tweening values and making you handle the style updates yourself.
@@ -78,4 +78,10 @@ Spend as little time as possible learning a library's API and trying to implemen
 * [my sad animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Motion&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [the code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-motion-example.js)
 * [react motion docs](https://github.com/chenglou/react-motion)
+
+
+## Run the project locally
+
+1. `yarn`
+2. `yarn run storybook`
 
