@@ -1,18 +1,16 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import ReactDOM from "react-dom"
-import anime from "animejs"
-import animationTimings from "./common/animationTimings"
-import Transition from "react-transition-group/Transition"
-import TransitionGroup from "react-transition-group/TransitionGroup"
+import React from 'react'
+import anime from 'animejs'
+import animationTimings from './common/animationTimings'
+import Transition from 'react-transition-group/Transition'
+import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 // we will trigger an event on the actual grid node after the exit animation completes
 // to let the transitiongroup know that it can be removed from the DOM
-
 // this is the only way to let react-transition-group delegate timing
-// to the JavaScript animation (as far as I can tell?) unfortunately
-const ANIMATION_DONE_EVENT = "animation::done"
-const triggerAnimationDoneEvent = node => node.dispatchEvent(new Event(ANIMATION_DONE_EVENT))
+// to the JavaScript animation, as far as I can tell
+const ANIMATION_DONE_EVENT = 'animation::done'
+const triggerAnimationDoneEvent = node =>
+  node.dispatchEvent(new Event(ANIMATION_DONE_EVENT))
 
 // cache current animation so that it can be interrupted if necessary
 let currentAnimation = null
@@ -20,13 +18,13 @@ const clearCurrentAnimation = () => currentAnimation && currentAnimation.pause()
 
 const getOpacity = animatingIn => ({
   value: animatingIn ? [0, 1] : [1, 0],
-  easing: "linear",
+  easing: 'linear',
   duration: 300
 })
 
-const animateGridIn = (gridContainer, done) => {
+const animateGridIn = gridContainer => {
   clearCurrentAnimation()
-  const cards = gridContainer.querySelectorAll(".card")
+  const cards = gridContainer.querySelectorAll('.card')
   currentAnimation = anime
     .timeline()
     .add({
@@ -46,14 +44,14 @@ const animateGridIn = (gridContainer, done) => {
       opacity: getOpacity(true),
       translateY: [-30, 0],
       complete: () => triggerAnimationDoneEvent(gridContainer),
-      delay: (el, i, l) => i * 100
+      delay: (el, i) => i * 100
     })
 }
 
-const animateGridOut = (gridContainer, done) => {
+const animateGridOut = gridContainer => {
   clearCurrentAnimation()
-  const cards = gridContainer.querySelectorAll(".card")
-  gridContainer.style.height = gridContainer.offsetHeight + "px"
+  const cards = gridContainer.querySelectorAll('.card')
+  gridContainer.style.height = gridContainer.offsetHeight + 'px'
   currentAnimation = anime
     .timeline()
     .add({
@@ -69,7 +67,7 @@ const animateGridOut = (gridContainer, done) => {
       opacity: getOpacity(false),
       duration: animationTimings.gridLeave,
       complete: () => triggerAnimationDoneEvent(gridContainer),
-      offset: "-=300"
+      offset: '-=300'
     })
 }
 
@@ -91,32 +89,32 @@ const animateCardOut = card =>
     duration: animationTimings.cardLeave
   })
 
-const animatingOut = false
-
 const TransitionGrid = props => {
   return (
     <Transition
       unmountOnExit
       appear
-      addEndListener={(node, done) => node.addEventListener(ANIMATION_DONE_EVENT, done)}
+      addEndListener={(node, done) =>
+        node.addEventListener(ANIMATION_DONE_EVENT, done)
+      }
       onEnter={animateGridIn}
       onExit={animateGridOut}
       in={props.visible}
     >
       <ul className="grid animated-grid">
         <TransitionGroup component={null}>
-          {props.items.map((item, index) => (
+          {props.items.map(item => (
             <Transition
               key={item}
               onEnter={animateCardIn}
               onExit={animateCardOut}
-              addEndListener={(node, done) => {
+              addEndListener={(node, done) =>
                 node.addEventListener(ANIMATION_DONE_EVENT, done)
-              }}
+              }
             >
               <li className="card" onClick={() => props.removeItem(item)}>
                 <div className="close-card">&#x2715;</div>
-                <div> {item}</div>
+                <div>{item}</div>
               </li>
             </Transition>
           ))}

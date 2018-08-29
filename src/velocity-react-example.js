@@ -1,8 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { VelocityTransitionGroup, velocityHelpers } from "velocity-react"
-import "velocity-animate/velocity.ui"
-import animationTimings from "./common/animationTimings"
+import React from 'react'
+import { VelocityTransitionGroup, velocityHelpers } from 'velocity-react'
+import 'velocity-animate/velocity.ui'
+import animationTimings from './common/animationTimings'
 
 const cardAnimationIn = velocityHelpers.registerEffect({
   defaultDuration: animationTimings.cardEnter,
@@ -15,8 +14,8 @@ const cardAnimationIn = velocityHelpers.registerEffect({
       },
       1,
       {
-        display: "flex",
-        easing: "spring"
+        display: 'flex',
+        easing: 'spring'
       }
     ]
   ]
@@ -32,8 +31,8 @@ const cardAnimationOut = velocityHelpers.registerEffect({
       },
       1,
       {
-        display: "flex",
-        easing: "spring"
+        display: 'flex',
+        easing: 'spring'
       }
     ]
   ]
@@ -50,8 +49,8 @@ const gridAnimationIn = velocityHelpers.registerEffect({
       },
       1,
       {
-        display: "flex",
-        easing: "spring"
+        display: 'flex',
+        easing: 'spring'
       }
     ]
   ]
@@ -67,8 +66,8 @@ const gridAnimationOut = velocityHelpers.registerEffect({
       },
       1,
       {
-        display: "flex",
-        easing: "spring",
+        display: 'flex',
+        easing: 'spring',
         delay: 2000
       }
     ]
@@ -103,7 +102,11 @@ const TransitionGrid = ({ visible, items, removeItem }) => {
           >
             {items.map(item => {
               return (
-                <div className="card" key={item} onClick={() => removeItem(item)}>
+                <div
+                  className="card"
+                  key={item}
+                  onClick={() => removeItem(item)}
+                >
                   <div className="close-card">&#x2715;</div>
                   <div>{item}</div>
                 </div>

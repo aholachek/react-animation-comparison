@@ -1,21 +1,18 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { StaggeredMotion, spring } from "react-motion"
+import React from 'react'
+import { StaggeredMotion, spring } from 'react-motion'
 
 const AnimatedGridContents = props => {
   return (
     <StaggeredMotion
-      defaultStyles={props.items.map(item => {
-        return { opacity: 1, translateY: -30 }
-      })}
+      defaultStyles={props.items.map(() => ({ opacity: 1, translateY: -30 }))}
       styles={prevInterpolatedStyles =>
         prevInterpolatedStyles.map((_, i) => {
           return i === 0
             ? { opacity: spring(1), translateY: spring(0) }
             : {
-                opacity: prevInterpolatedStyles[i - 1].opacity,
-                translateY: spring(prevInterpolatedStyles[i - 1].translateY)
-              }
+              opacity: prevInterpolatedStyles[i - 1].opacity,
+              translateY: spring(prevInterpolatedStyles[i - 1].translateY)
+            }
         })
       }
     >

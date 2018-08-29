@@ -1,9 +1,8 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import NodeGroup from "react-move/NodeGroup"
-import Animate from "react-move/Animate"
-import { easeElastic } from "d3-ease"
-import animationTimings from "./common/animationTimings"
+import React, { Component } from 'react'
+import NodeGroup from 'react-move/NodeGroup'
+import Animate from 'react-move/Animate'
+import { easeElastic } from 'd3-ease'
+import animationTimings from './common/animationTimings'
 
 class TransitionGrid extends Component {
   render() {
@@ -24,7 +23,7 @@ class TransitionGrid extends Component {
           },
           {
             translateX: [0],
-            timing: { duration: animationTimings.gridEnter, ease: easeElastic },
+            timing: { duration: animationTimings.gridEnter, ease: easeElastic }
           }
         ]}
         leave={[
@@ -33,7 +32,7 @@ class TransitionGrid extends Component {
           },
           {
             translateX: [1000],
-            timing: { duration: animationTimings.gridLeave, ease: easeElastic  },
+            timing: { duration: animationTimings.gridLeave, ease: easeElastic }
           }
         ]}
       >
@@ -41,7 +40,10 @@ class TransitionGrid extends Component {
           return (
             <div
               className="animated-grid"
-              style={{ opacity: opacity, transform: `translateX(${translateX}px)` }}
+              style={{
+                opacity: opacity,
+                transform: `translateX(${translateX}px)`
+              }}
             >
               {
                 <NodeGroup

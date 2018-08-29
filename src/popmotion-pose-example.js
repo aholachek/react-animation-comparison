@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import posed, { PoseGroup } from "react-pose"
-import { easing, tween, spring } from "popmotion"
-import animationTimings from "./common/animationTimings"
+import React from 'react'
+import posed, { PoseGroup } from 'react-pose'
+import { easing, tween, spring } from 'popmotion'
+import animationTimings from './common/animationTimings'
 
 const GridProps = {
   preEnter: {
@@ -13,17 +13,16 @@ const GridProps = {
     opacity: 1,
     delayChildren: animationTimings.gridEnter,
     staggerChildren: 80,
+    // https://popmotion.io/pose/learn/dynamic-props/
     transition: props => {
-      if (props.keys === "opacity") {
+      if (props.keys === 'opacity') {
         return tween({
           ...props,
           duration: animationTimings.gridEnter,
           ease: easing.linear
         })
       } else {
-        return spring({
-          ...props
-        })
+        return spring(props)
       }
     }
   },
@@ -33,16 +32,14 @@ const GridProps = {
     delay: 800,
     staggerChildren: 50,
     transition: props => {
-      if (props.keys === "opacity") {
+      if (props.keys === 'opacity') {
         return tween({
           ...props,
           duration: animationTimings.gridLeave,
           ease: easing.linear
         })
       } else {
-        return spring({
-          ...props
-        })
+        return spring(props)
       }
     }
   }
@@ -50,31 +47,21 @@ const GridProps = {
 
 const Grid = posed.ul(GridProps)
 
-
 const itemProps = {
   preEnter: {
     y: -50,
     opacity: 0,
-    transition: props =>
-      spring({
-        ...props
-      })
+    transition: props => spring(props)
   },
   enter: {
     y: 0,
     opacity: 1,
-    transition: props =>
-      spring({
-        ...props
-      })
+    transition: props => spring(props)
   },
   exit: {
     y: -50,
     opacity: 0,
-    transition: props =>
-      spring({
-        ...props
-      })
+    transition: props => spring(props)
   }
 }
 
@@ -89,7 +76,11 @@ const TransitionGrid = ({ visible, items, removeItem }) => {
           <PoseGroup preEnterPose="preEnter">
             {items.map(item => {
               return (
-                <Item className="card" key={item} onClick={() => removeItem(item)}>
+                <Item
+                  className="card"
+                  key={item}
+                  onClick={() => removeItem(item)}
+                >
                   <div className="close-card">&#x2715;</div>
                   <div>{item}</div>
                 </Item>
