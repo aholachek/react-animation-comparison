@@ -35,12 +35,13 @@ Spend as little time as possible learning a library's API and trying to implemen
 * The automatic FLIP animations are pretty cool (try shuffling the cards to see it in action), and the default easings made the animations look great.
 * I liked how the library automatically applies transitions to DOM elements for you instead of just tweening values and making you handle the style updates yourself.
 * The docs are good.
-* 🐛 **Bug** Repeat animations are implemented incorrectly (extra ghost elements are animated in). Try toggling the example multiple times to see what I mean.
+* 🐛 **Bug** Interrupted repeat animations are implemented incorrectly (extra ghost elements are animated in if the previous animation did not fully complete). Try toggling the example multiple times fairly quickly to see what I mean.
+*  🐛 **Bug** Shuffling the cards will result in an out-of-order staggered exit transition.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=Popmotion%20Pose&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/popmotion-pose-example.js)
 * [Popmotion Pose docs](https://popmotion.io/pose/)
 
-3.  **react-transition-group & gsap**
+1.  **react-transition-group & gsap**
 
 * Basically the same as the animejs example, just with the animation library swapped out. GSAP has a less permissive license and it's older and heavier than animejs, but it's battle-tested and powerful.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
@@ -52,7 +53,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 
 * This newcomer melds the powers of `react-motion` and `react-animated` into one library (and the docs have tons of cool examples).
 * React-spring's keyframes API, which I used in my example to sequence animations makes great use of async/await but is marked as experimental in the docs.
-* 🐛 **Bug** There was a serious, window-crashing memory leak created when adding new cards, though this could have been something I did incorrectly.
+* 🐛 **Bug** There is a serious, window-crashing memory leak created when adding new cards, though this could be something I'm doing incorrectly.
 * I couldn't quite get the whole thing working the way I wanted to.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Spring&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-spring-example.js)
@@ -84,5 +85,5 @@ Spend as little time as possible learning a library's API and trying to implemen
 ## Run the project locally
 
 1. `yarn` or `npm install`
-2. `yarn run storybook` or `npm run storybook`
+2. `yarn start` or `npm start`
 

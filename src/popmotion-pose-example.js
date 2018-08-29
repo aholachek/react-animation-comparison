@@ -1,6 +1,6 @@
 import React from 'react'
 import posed, { PoseGroup } from 'react-pose'
-import { easing, tween, spring } from 'popmotion'
+import { easing } from 'popmotion'
 import animationTimings from './common/animationTimings'
 
 const GridProps = {
@@ -13,17 +13,14 @@ const GridProps = {
     opacity: 1,
     delayChildren: animationTimings.gridEnter,
     staggerChildren: 80,
+    // https://popmotion.io/pose/learn/custom-transitions/
     // https://popmotion.io/pose/learn/dynamic-props/
-    transition: props => {
-      if (props.keys === 'opacity') {
-        return tween({
-          ...props,
-          duration: animationTimings.gridEnter,
-          ease: easing.linear
-        })
-      } else {
-        return spring(props)
-      }
+    transition: {
+      opacity: {
+        duration: animationTimings.gridEnter,
+        ease: easing.linear
+      },
+      x: { type: 'spring' }
     }
   },
   exit: {
@@ -31,16 +28,12 @@ const GridProps = {
     opacity: 0,
     delay: 800,
     staggerChildren: 50,
-    transition: props => {
-      if (props.keys === 'opacity') {
-        return tween({
-          ...props,
-          duration: animationTimings.gridLeave,
-          ease: easing.linear
-        })
-      } else {
-        return spring(props)
-      }
+    transition: {
+      opacity: {
+        duration: animationTimings.gridLeave,
+        ease: easing.linear
+      },
+      x: { type: 'spring' }
     }
   }
 }
@@ -51,17 +44,17 @@ const itemProps = {
   preEnter: {
     y: -50,
     opacity: 0,
-    transition: props => spring(props)
+    transition: { type: 'spring' }
   },
   enter: {
     y: 0,
     opacity: 1,
-    transition: props => spring(props)
+    transition: { type: 'spring' }
   },
   exit: {
     y: -50,
     opacity: 0,
-    transition: props => spring(props)
+    transition: { type: 'spring' }
   }
 }
 
