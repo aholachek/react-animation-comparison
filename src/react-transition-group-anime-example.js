@@ -89,39 +89,37 @@ const animateCardOut = card =>
     duration: animationTimings.cardLeave
   })
 
-const TransitionGrid = props => {
-  return (
-    <Transition
-      unmountOnExit
-      appear
-      addEndListener={(node, done) =>
-        node.addEventListener(ANIMATION_DONE_EVENT, done)
-      }
-      onEnter={animateGridIn}
-      onExit={animateGridOut}
-      in={props.visible}
-    >
-      <ul className="grid animated-grid">
-        <TransitionGroup component={null}>
-          {props.items.map(item => (
-            <Transition
-              key={item}
-              onEnter={animateCardIn}
-              onExit={animateCardOut}
-              addEndListener={(node, done) =>
-                node.addEventListener(ANIMATION_DONE_EVENT, done)
-              }
-            >
-              <li className="card" onClick={() => props.removeItem(item)}>
-                <div className="close-card">&#x2715;</div>
-                <div>{item}</div>
-              </li>
-            </Transition>
-          ))}
-        </TransitionGroup>
-      </ul>
-    </Transition>
-  )
-}
+const TransitionGrid = props => (
+  <Transition
+    unmountOnExit
+    appear
+    addEndListener={(node, done) =>
+      node.addEventListener(ANIMATION_DONE_EVENT, done)
+    }
+    onEnter={animateGridIn}
+    onExit={animateGridOut}
+    in={props.visible}
+  >
+    <ul className="grid animated-grid">
+      <TransitionGroup component={null}>
+        {props.items.map(item => (
+          <Transition
+            key={item}
+            onEnter={animateCardIn}
+            onExit={animateCardOut}
+            addEndListener={(node, done) =>
+              node.addEventListener(ANIMATION_DONE_EVENT, done)
+            }
+          >
+            <li className="card" onClick={() => props.removeItem(item)}>
+              <div className="close-card">&#x2715;</div>
+              <div>{item}</div>
+            </li>
+          </Transition>
+        ))}
+      </TransitionGroup>
+    </ul>
+  </Transition>
+)
 
 export default TransitionGrid

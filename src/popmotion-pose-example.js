@@ -3,6 +3,7 @@ import posed, { PoseGroup } from 'react-pose'
 import { easing } from 'popmotion'
 import animationTimings from './common/animationTimings'
 
+// https://popmotion.io/pose/learn/custom-transitions/
 const GridProps = {
   preEnter: {
     x: -1000,
@@ -13,8 +14,6 @@ const GridProps = {
     opacity: 1,
     delayChildren: animationTimings.gridEnter,
     staggerChildren: 80,
-    // https://popmotion.io/pose/learn/custom-transitions/
-    // https://popmotion.io/pose/learn/dynamic-props/
     transition: {
       opacity: {
         duration: animationTimings.gridEnter,
@@ -67,18 +66,16 @@ const TransitionGrid = ({ visible, items, removeItem }) => {
       {visible && (
         <Grid className="grid animated-grid" key="grid">
           <PoseGroup preEnterPose="preEnter">
-            {items.map(item => {
-              return (
-                <Item
-                  className="card"
-                  key={item}
-                  onClick={() => removeItem(item)}
-                >
-                  <div className="close-card">&#x2715;</div>
-                  <div>{item}</div>
-                </Item>
-              )
-            })}
+            {items.map(item => (
+              <Item
+                className="card"
+                key={item}
+                onClick={() => removeItem(item)}
+              >
+                <div className="close-card">&#x2715;</div>
+                <div>{item}</div>
+              </Item>
+            ))}
           </PoseGroup>
         </Grid>
       )}
