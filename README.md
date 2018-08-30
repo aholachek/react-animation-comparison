@@ -1,7 +1,5 @@
 # What's the most developer-friendly React animation library?
 
-I've updated this repo for 2018, adding `popmotion-pose` and `react-spring` examples, updating `react-transition-group` from V1 to V2, and revising the other examples as necessary.
-
 ### The Goal: to replicate this animation on entering and exiting react components:
 
 ![example animation](./src/assets/react-animation-comparison.gif)
@@ -19,31 +17,32 @@ The example sequences the "enter" and "exit" animations of both a parent and its
 ### The Arbitrary Limit:
 Spend as little time as possible learning a library's API and trying to implement the animation.
 
-### The Results (Roughly in order of preference)
+### The Results, Ordered by Preference
 
-1.  **react-transition-group & animejs**
+1. 🥇  **react-transition-group & animejs**
 
-* Using react-transition-group and a JavaScript animation library ended up being my favorite technique, because it offered the flexibility to make custom, sequenced transitions. (The tradeoff for this flexibility, as usual, is you have to write a bit more code.)
-* Animejs is lightweight and open source, and I find the imperative API more intuitive than the typical React approach for multiple complex animations.
+* Using `react-transition-group` and a JavaScript animation library ended up being my favorite technique, because it offered the flexibility to make custom, sequenced transitions.
+* `Animejs` is lightweight and open source, and I find the imperative API more intuitive than the typical React approach for multiple complex animations.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20animejs&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-anime-example.js)
 * [React transition group docs](http://reactcommunity.org/react-transition-group/)
 * [Anime docs](https://github.com/juliangarnier/anime)
 
-2.  **react-pose**
-* In terms of pure ease of use and beginner-friendliness, this one was the winner for me.
+2. 🥈 **react-pose**
+* This was the easiest example to get up and running.
 * The automatic FLIP animations are pretty cool (try shuffling the cards to see it in action), and the default easings made the animations look great.
 * I liked how the library automatically applies transitions to DOM elements for you instead of just tweening values and making you handle the style updates yourself.
 * The docs are good.
 * 🐛 **Bug** Interrupted repeat animations are implemented incorrectly (extra ghost elements are animated in if the previous animation did not fully complete). Try toggling the example multiple times fairly quickly to see what I mean.
 *  🐛 **Bug** Shuffling the cards will result in an out-of-order staggered exit transition.
+*  This would have been my #1 choice were it not for the bugs.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=Popmotion%20Pose&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/popmotion-pose-example.js)
 * [Popmotion Pose docs](https://popmotion.io/pose/)
 
-1.  **react-transition-group & gsap**
+3. 🥉 **react-transition-group & gsap**
 
-* Basically the same as the animejs example, just with the animation library swapped out. GSAP has a less permissive license and it's older and heavier than animejs, but it's battle-tested and powerful.
+* Basically the same as the `animejs` example, just with the animation library swapped out. `GSAP` has a less permissive license and it's older and heavier than  `animejs`, but it's battle-tested and powerful.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-gsap-example.js)
 * [React transition group docs](http://reactcommunity.org/react-transition-group/)
@@ -52,7 +51,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 4.  **react-spring**
 
 * This newcomer melds the powers of `react-motion` and `react-animated` into one library (and the docs have tons of cool examples).
-* React-spring's keyframes API, which I used in my example to sequence animations makes great use of async/await but is marked as experimental in the docs.
+* `React-spring`'s keyframes API, which I used in my example to sequence animations makes great use of async/await but is marked as experimental in the docs.
 * 🐛 **Bug** There is a serious, window-crashing memory leak created when adding new cards, though this could be something I'm doing incorrectly.
 * I couldn't quite get the whole thing working the way I wanted to.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Spring&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
@@ -61,7 +60,7 @@ Spend as little time as possible learning a library's API and trying to implemen
 
 5.  **react-move**
 
-* A lightweight library that helps D3 and React work together. It ended up not being quite flexible enough for the needs of this task, though if the demo featured more traditionally D3-like interactions it would have been great.
+* A lightweight library that helps `D3` and `React` work together. It ended up not being quite flexible enough for the needs of this task, though if the demo featured more traditionally D3-like interactions it would have been great.
 * [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Move&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 * [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-move-example.js)
 * [react-move docs](https://react-move-example.js.org/#/)
