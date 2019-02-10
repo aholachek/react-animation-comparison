@@ -1,6 +1,7 @@
 import { configure } from '@storybook/react';
 import '@storybook/addon-options/register';
 import { setOptions } from '@storybook/addon-options';
+import { setConfig } from 'react-hot-loader';
 
 setOptions({
   name: 'React Animation Libraries',
@@ -17,3 +18,5 @@ function loadStories() {
 }
 
 configure(loadStories, module);
+
+setConfig({ pureSFC: true });

@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import shuffle from "./shuffle"
+import React, { Component } from 'react'
+import shuffle from './shuffle'
 
 export default class Container extends Component {
   state = {
@@ -22,8 +22,9 @@ export default class Container extends Component {
   }
 
   removeItem = itemToRemove => {
-    const items = this.state.items.filter(item => item !== itemToRemove)
-    this.setState({ items })
+    this.setState(({ items }) => ({
+      items: items.filter(item => item !== itemToRemove)
+    }))
   }
 
   shuffleItems = () => {
@@ -31,6 +32,7 @@ export default class Container extends Component {
   }
 
   render() {
+    const { animationComponent: AnimationComponent } = this.props
     return (
       <div className="p-4">
         <div>
@@ -53,12 +55,12 @@ export default class Container extends Component {
           )}
         </div>
         <div>
-          {this.props.render({
-            items: this.state.items,
-            visible: this.state.visible,
-            addItem: this.addItem,
-            removeItem: this.removeItem
-          })}
+          <AnimationComponent
+            items={this.state.items}
+            visible={this.state.visible}
+            addItem={this.addItem}
+            removeItem={this.removeItem}
+          />
         </div>
       </div>
     )

@@ -115,4 +115,4 @@ class TransitionGrid extends Component {
   }
 }
 
-export default props => <TransitionGrid {...props} />
+export default TransitionGrid

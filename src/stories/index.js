@@ -14,14 +14,18 @@ import 'normalize.css'
 import '../common/index.css'
 
 storiesOf('Animation Examples', module)
-  .add('React-Transition-Group + animejs', () => (
-    <Container render={AnimeExample} />
+  .add('React-Transition-Group + Animejs', () => (
+    <Container animationComponent={AnimeExample} />
   ))
-  .add('Popmotion Pose', () => <Container render={PopmotionPoseExample} />)
+  .add('React-Spring', () => (
+    <Container animationComponent={ReactSpringExample} />
+  ))
+  .add('Popmotion Pose', () => (
+    <Container animationComponent={PopmotionPoseExample} />
+  ))
   .add('React-Transition-Group + GSAP', () => (
-    <Container render={ReactTransitionGroup} />
+    <Container animationComponent={ReactTransitionGroup} />
   ))
-  .add('React-Spring', () => <Container render={ReactSpringExample} />)
-  .add('React-Move', () => <Container render={ReactMove} />)
-  .add('Velocity-React', () => <Container render={VelocityReact} />)
-  .add('React-Motion', () => <Container render={ReactMotion} />)
+  .add('React-Move', () => <Container animationComponent={ReactMove} />)
+  .add('Velocity-React', () => <Container animationComponent={VelocityReact} />)
+  .add('React-Motion', () => <Container animationComponent={ReactMotion} />)

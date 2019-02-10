@@ -41,7 +41,7 @@ const Grid = posed.ul(GridProps)
 
 const itemProps = {
   preEnter: {
-    y: -50,
+    y: -30,
     opacity: 0,
     transition: { type: 'spring' }
   },
@@ -51,7 +51,7 @@ const itemProps = {
     transition: { type: 'spring' }
   },
   exit: {
-    y: -50,
+    y: -30,
     opacity: 0,
     transition: { type: 'spring' }
   }

@@ -1,66 +1,73 @@
-import React, { Component } from 'react'
-import delay from 'delay'
-import { Spring, Trail, Keyframes, animated, config } from 'react-spring'
+import React, { useRef } from 'react'
+import { useTransition, useChain, config, animated } from 'react-spring'
 
-class TransitionGrid extends Component {
-  async componentDidUpdate(prevProps, prevState) {
-    if (!prevProps.visible && this.props.visible) {
-      this.container(Spring, {
-        from: { x: -100, opacity: 0 },
-        to: { x: 0, opacity: 1 },
-        config: config.slow
-      })
-      await delay(500)
-      await this.content(Trail, {
-        from: { y: -120, opacity: 0 },
-        to: { y: 0, opacity: 1 }
-      })
-    } else if (prevProps.visible && !this.props.visible) {
-      this.content(Trail, { to: { y: -120, opacity: 0 } })
-      await delay(500)
-      await this.container(Spring, {
-        to: { x: -100, opacity: 0 },
-        config: config.slow
-      })
-    }
-  }
+const TransitionGrid = ({ visible, items, removeItem }) => {
+  const containerRef = useRef()
+  // https://react-spring.surge.sh/#/useTransition
+  const containerTransition = useTransition(visible, item => item, {
+    ref: containerRef,
+    config: config.stiff,
+    from: { opacity: 0, x: -500 },
+    enter: { opacity: 1, x: 0 },
+    leave: { opacity: 0, x: 500 },
+    unique: true,
+    reset: true
+  })
 
-  render() {
-    const { items, removeItem } = this.props
-    return (
-      <Keyframes native script={next => (this.container = next)}>
-        {({ x, opacity }) => (
-          <animated.ul
-            className="grid animated-grid"
-            style={{
-              transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
-              opacity
-            }}
-          >
-            <Keyframes
-              native
-              keys={items}
-              script={next => (this.content = next)}
+  const cardsRef = useRef()
+  const cardsTransition = useTransition(visible ? items : [], item => item, {
+    ref: cardsRef,
+    config: config.stiff,
+    from: { opacity: 0, translateY: -30 },
+    enter: { opacity: 1, translateY: 0 },
+    leave: { opacity: 0, translateY: 30 },
+    trail: 400 / items.length,
+    unique: true,
+    reset: true
+  })
+
+  // https://react-spring.surge.sh/#/useChain
+  useChain(visible ? [containerRef, cardsRef] : [cardsRef, containerRef], [
+    0,
+    visible ? 0.1 : 0.6
+  ])
+
+  return (
+    <div>
+      {containerTransition.map(
+        ({ item, key, props: { x, opacity } }) =>
+          item && (
+            <animated.div
+              key={key}
+              style={{
+                opacity,
+                transform: x.interpolate(x => `translateX(${x}px)`)
+              }}
+              className="grid animated-grid"
             >
-              {items.map(item => ({ y, ...props }) => (
-                <animated.li
-                  onClick={() => removeItem(item)}
-                  className="card"
-                  style={{
-                    transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
-                    ...props
-                  }}
-                >
-                  <div className="close-card">&#x2715;</div>
-                  <div>{item}</div>
-                </animated.li>
-              ))}
-            </Keyframes>
-          </animated.ul>
-        )}
-      </Keyframes>
-    )
-  }
+              {cardsTransition.map(
+                ({ item, key, props: { translateY, opacity } }) => (
+                  <animated.div
+                    className="card"
+                    key={key}
+                    style={{
+                      opacity,
+                      transform: translateY.interpolate(
+                        s => `translateY(${s}px)`
+                      )
+                    }}
+                    onClick={() => removeItem(item)}
+                  >
+                    <div className="close-card">&#x2715;</div>
+                    <div>{item}</div>
+                  </animated.div>
+                )
+              )}
+            </animated.div>
+          )
+      )}
+    </div>
+  )
 }
 
-export default props => <TransitionGrid {...props} />
+export default TransitionGrid
