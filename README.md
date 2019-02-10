@@ -19,7 +19,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 
 1. The sequenced "enter" and "exit" animations of both a parent and its child requires coordination between different components.
 2. The enter and exit animations are not simple mirrors of each other, as some libraries expect.
-3. The positions of the grid and cards should be animated with a spring (or, failing that, with an elastic easing), while opacity changes should have a linear easing
+3. The positions of the grid and cards should be animated with a spring (or, failing that, with an elastic easing), while opacity changes should have a linear easing.
 4. The cards animating in and out are initially staggered, but adding or removing cards one-by-one should result in a fluid animation with no delay.
 5. Toggling the example rapidly should not create a broken view&mdash; cancelled animations should be cleaned up and there shouldn't be any straggler DOM elements left behind.
 
@@ -54,7 +54,6 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
   - Interrupted repeat animations are implemented incorrectly (extra ghost elements are animated in if the previous animation did not fully complete). Try toggling the example multiple times fairly quickly to see what I mean. [Link to issue](https://github.com/Popmotion/popmotion/issues/318)
   - Shuffling the cards will result in an out-of-order staggered exit transition. [Link to issue](https://github.com/Popmotion/popmotion/issues/319)
   - (Introduced in v4): Individual card animations no longer work correctly.
-
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=Popmotion%20Pose&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/popmotion-pose-example.js)
 - [Popmotion Pose docs](https://popmotion.io/pose/)
