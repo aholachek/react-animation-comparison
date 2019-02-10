@@ -1,8 +1,8 @@
-### 🚨 Updated for 2019
+### 🆕 Updated for 2019
 
 # What's the most powerful and developer-friendly React animation library?
 
-### The Task: Replicate this animation in React
+### The goal: replicate this animation in React
 
 ![example animation](./src/assets/comparison.gif)
 
@@ -15,7 +15,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 5. In-progress animations should be appropriately cancelled if the enter/exit state is toggled rapidly.
 6. If the cards were shuffled, they should still animate out with the expected staggered order.
 
-### Why It's Hard
+### Why it's hard
 
 1. The sequenced "enter" and "exit" animations of both a parent and its child requires coordination between different components.
 2. The enter and exit animations are not simple mirrors of each other, as some libraries expect.
@@ -23,18 +23,18 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 4. The cards animating in and out are initially staggered, but adding or removing cards one-by-one should result in a fluid animation with no delay.
 5. Toggling the example rapidly should not create a broken view&mdash; cancelled animations should be cleaned up and there shouldn't be any straggler DOM elements left behind.
 
-### The Results, Ordered by Preference
+### The results, ordered by preference
 
 1. 🥇 **react-transition-group & animejs**
 
-- Using `react-transition-group` and a JavaScript animation library ended up being my favorite technique, because it offers total flexibility and control, at the cost of additional complexity.
-- `Animejs` is lightweight and open source, and I find the imperative API more intuitive than the typical React approach for coordinated, complex animations.
+- Using `react-transition-group` and a vanilla JavaScript animation library ended up being my favorite technique, because it offers total flexibility and control, at the cost of some additional complexity.
+- `Animejs` is lightweight and open source, and I find its imperative API more intuitive than the typical React approach for coordinated, complex animations.
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20animejs&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-anime-example.js)
 - [React transition group docs](http://reactcommunity.org/react-transition-group/)
 - [Anime docs](https://github.com/juliangarnier/anime)
 
-1. 🥈 **react-spring**
+2. 🥈 **react-spring**
 
 - If you'd prefer to use a React-specific library, I recommend `react-spring`.
 - The library's use of the hooks API is very concise and expressive -- it took only about 70 lines of code to implement the example!
@@ -44,7 +44,15 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-spring-example.js)
 - [react-spring docs](https://react-spring.surge.sh/)
 
-1. 🥉 **react-pose**
+3. 🥉 **react-transition-group & gsap**
+
+- Basically the same as the `animejs` example, just with the animation library swapped out. `GSAP` has a less permissive license and it's older and heavier than `animejs`, but it's battle-tested and powerful.
+- [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+- [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-gsap-example.js)
+- [React transition group docs](http://reactcommunity.org/react-transition-group/)
+- [GSAP docs](https://greensock.com/docs)
+
+4. **react-pose**
 
 - A year ago, this was my favorite option, but now the number of bugs make me hesitant to recommend it.
 - The good:
@@ -57,14 +65,6 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=Popmotion%20Pose&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/popmotion-pose-example.js)
 - [Popmotion Pose docs](https://popmotion.io/pose/)
-
-4. 🥉 **react-transition-group & gsap**
-
-- Basically the same as the `animejs` example, just with the animation library swapped out. `GSAP` has a less permissive license and it's older and heavier than `animejs`, but it's battle-tested and powerful.
-- [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
-- [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-transition-group-gsap-example.js)
-- [React transition group docs](http://reactcommunity.org/react-transition-group/)
-- [GSAP docs](https://greensock.com/docs)
 
 5.  **react-move**
 
@@ -81,7 +81,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/velocity-react-example.js)
 - [velocity-react docs](https://github.com/google-fabric/velocity-react)
 
-1.  **react-motion**
+7.  **react-motion**
 
 - I found this library very difficult to use when implementing the example.
 - [my sad animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Motion&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
