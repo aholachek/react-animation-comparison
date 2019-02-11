@@ -37,7 +37,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 2. 🥈 **react-spring**
 
 - If you'd prefer to use a React-specific library, I recommend `react-spring`.
-- The library's use of the hooks API is very concise and expressive -- it took only about 70 lines of code to implement the example!
+- The library's use of the hooks API is very concise and expressive&mdash;it took only about 70 lines of code to implement the example!
 - The library is in active development and supports a wide variety of use cases.
 - I was unable to get the cards to animate in and out in opposite directions, but that is a minor limitation.
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Spring&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
