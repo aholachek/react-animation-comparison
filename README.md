@@ -64,7 +64,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
   - (Introduced in v4): Individual card animations no longer work correctly.
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=Popmotion%20Pose&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/popmotion-pose-example.js)
-- [Popmotion Pose docs](https://popmotion.io/pose/)
+- [React Pose docs](https://popmotion.io/pose/)
 
 5.  **react-move**
 
