@@ -8,10 +8,10 @@
 
 Here's a rundown of what should happen (it's more complex than it appears at first glance!)
 
-1. When it's first rendered in React, the grid component should animate in, followed by the staggered animation of its child, a list of cards.
-2. New cards can be added individually to the cards array, and should be animated in.
-3. Individual cards can also be removed from the cards array, and should be animated out as they leave.
-4. When the grid component is unmounted, it should wait for its children to animate out before animating itself and leaving the DOM.
+1. When it's first rendered in React, the grid component should animate in from the left, followed by the staggered animation of its child, a list of cards, with each card fading in from above.
+2. New cards can be added individually to the cards array, and should be animated in with a "fade up" animation.
+3. Individual cards can also be removed from the cards array, and should be animated out with a "fade up" animation as they leave.
+4. When the grid component is unmounted, it should wait for its children to animate out before animating itself and leaving the DOM in the opposite direction from where it arrived.
 5. In-progress animations should be appropriately cancelled if the enter/exit state is toggled rapidly.
 6. If the cards were shuffled, they should still animate out with the expected staggered order.
 
@@ -21,7 +21,8 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 2. The enter and exit animations are not simple mirrors of each other, as some libraries expect.
 3. The positions of the grid and cards should be animated with a spring (or, failing that, with an elastic easing), while opacity changes should have a linear easing.
 4. The cards animating in and out are initially staggered, but adding or removing cards one-by-one should result in a fluid animation with no delay.
-5. Toggling the example rapidly should not create a broken view&mdash; cancelled animations should be cleaned up and there shouldn't be any straggler DOM elements left behind.
+5. The initial staggered entry of cards should have them animating in from the top, but an individual card being added should have its own animation &mdash; fading in from the bottom.
+6. Toggling the example rapidly should not create a broken view&mdash; cancelled animations should be cleaned up and there shouldn't be any straggler DOM elements left behind.
 
 ### The results, ordered by preference
 
@@ -39,7 +40,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 - If you'd prefer to use a React-specific library, I recommend `react-spring`.
 - The library's use of the hooks API is very concise and expressive&mdash;it took only about 70 lines of code to implement the example!
 - The library is in active development and supports a wide variety of use cases.
-- I was unable to get the cards to animate in and out in opposite directions, but that is a minor limitation.
+- I was unable to get the cards to have different animations depending on whether they were arriving as a group ("fade in down") or as an individually added card ("fade in up").
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Spring&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-spring-example.js)
 - [react-spring docs](https://react-spring.surge.sh/)
@@ -76,7 +77,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 6.  **velocity-react**
 
 - A straightforward option that got me far but then ended up tripping me up when it came time to get the nested leave animations working.
-- At one point, this library might have been one of the better options for animating in React, but now with  `react-spring`, `popmotion-pose`, and `react-transition-group v2` there are more powerful, updated alternatives with better documentation.
+- At one point, this library might have been one of the better options for animating in React, but now with `react-spring`, `popmotion-pose`, and `react-transition-group v2` there are more powerful, updated alternatives with better documentation.
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=Velocity-React&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/velocity-react-example.js)
 - [velocity-react docs](https://github.com/google-fabric/velocity-react)

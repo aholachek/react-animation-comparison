@@ -20,7 +20,7 @@ const TransitionGrid = ({ visible, items, removeItem }) => {
     config: config.stiff,
     from: { opacity: 0, translateY: -30 },
     enter: { opacity: 1, translateY: 0 },
-    leave: { opacity: 0, translateY: 30 },
+    leave: { opacity: 0, translateY: -30 },
     trail: 400 / items.length,
     unique: true,
     reset: true
