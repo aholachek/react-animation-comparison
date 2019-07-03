@@ -5,7 +5,7 @@
     "animejs": "^3.0.1",
     "d3-ease": "^1.0.3",
     "delay": "^2.0.0",
-    "gsap": "^1.19.1",
+    "gsap": "^1.20.6",
     "normalize.css": "^8.0.0",
     "popmotion": "^8.6.2",
     "prop-types": "^15.6.1",
@@ -28,14 +28,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@storybook/addon-actions": "^4.1.6",
-    "@storybook/addon-links": "^4.1.6",
-    "@storybook/addon-options": "^4.1.11",
-    "@storybook/react": "^4.1.11",
-    "@storybook/storybook-deployer": "^2.3.0",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-links": "^5.1.9",
+    "@storybook/addon-options": "^5.1.9",
+    "@storybook/react": "^5.1.9",
+    "@storybook/storybook-deployer": "^2.8.1",
     "babel-loader": "^8.0.5",
     "prettier": "1.14.2",
     "react-hot-loader": "^4.6.3",
-    "storybook-readme": "^4.0.5"
+    "storybook-readme": "^5.0.5"
   }
 }
