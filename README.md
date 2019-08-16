@@ -37,11 +37,12 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 
 2. 🥈 **framer-motion**
  - Of all the react-specific animation libraries, I found this one to have the most intuitive and powerful API.
-- [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20animejs&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+ - I do wish it was possible to minimize the wait time between the parent and child animations.
+- [my animation attempt](https://alex.holachek.com/react-animation-comparison/?path=/story/animation-examples--framer-motion)
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/framer-motion-example.js)
 - [Framer motion docs](https://www.framer.com/api/motion/)
 
-3. 🥉 **react-spring**
+1. 🥉 **react-spring**
 
 - The library's use of the hooks API is very concise and expressive&mdash;it took only about 70 lines of code to implement the example!
 - The library is in active development and supports a wide variety of use cases.
