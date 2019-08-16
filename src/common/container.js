@@ -5,31 +5,31 @@ export default class Container extends Component {
   state = {
     items: [],
     visible: false
-  }
+  };
 
   addItems = () => {
     this.setState({ items: [1, 2, 3, 4, 5, 6, 7, 8], visible: true })
-  }
+  };
 
   removeGrid = () => {
     this.setState({ visible: false })
-  }
+  };
 
   addItem = () => {
     if (!this.state.items.length) return
     const finalItem = [...this.state.items].sort((a, b) => b - a)[0] + 1
     this.setState({ items: this.state.items.concat(finalItem) })
-  }
+  };
 
   removeItem = itemToRemove => {
     this.setState(({ items }) => ({
       items: items.filter(item => item !== itemToRemove)
     }))
-  }
+  };
 
   shuffleItems = () => {
     this.setState({ items: [...shuffle(this.state.items)] })
-  }
+  };
 
   render() {
     const { animationComponent: AnimationComponent } = this.props

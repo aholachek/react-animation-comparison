@@ -2,10 +2,7 @@ import React from 'react'
 import animationTimings from './common/animationTimings'
 import Transition from 'react-transition-group/Transition'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
-import 'gsap/TweenLite'
-import 'gsap/CSSPlugin'
-import 'gsap/EasePack'
-import 'gsap/TimelineLite'
+import { TweenLite, TimelineLite, Elastic } from 'gsap/TweenMax'
 
 // gsap cheatsheet: https://ihatetomatoes.net/wp-content/uploads/2016/07/GreenSock-Cheatsheet-4.pdf
 

@@ -35,9 +35,14 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 - [React transition group docs](http://reactcommunity.org/react-transition-group/)
 - [Anime docs](https://github.com/juliangarnier/anime)
 
-2. 🥈 **react-spring**
+2. 🥈 **framer-motion**
+ - Of all the react-specific animation libraries, I found this one to have the most intuitive and powerful API.
+- [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20animejs&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+- [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/framer-motion-example.js)
+- [Framer motion docs](https://www.framer.com/api/motion/)
 
-- If you'd prefer to use a React-specific library, I recommend `react-spring`.
+3. 🥉 **react-spring**
+
 - The library's use of the hooks API is very concise and expressive&mdash;it took only about 70 lines of code to implement the example!
 - The library is in active development and supports a wide variety of use cases.
 - I was unable to get the cards to have different animations depending on whether they were arriving as a group ("fade in down") or as an individually added card ("fade in up").
@@ -45,7 +50,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-spring-example.js)
 - [react-spring docs](https://react-spring.surge.sh/)
 
-3. 🥉 **react-transition-group & gsap**
+1. 🥉 **react-transition-group & gsap**
 
 - Basically the same as the `animejs` example, just with the animation library swapped out. `GSAP` has a less permissive license and it's older and heavier than `animejs`, but it's battle-tested and powerful.
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
