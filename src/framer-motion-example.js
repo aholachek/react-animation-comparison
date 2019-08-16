@@ -7,6 +7,12 @@ const springConfig = {
   damping: 13
 }
 
+const containerConfig = {
+  staggerChildren: 0.1,
+  translateX: springConfig,
+  opacity: 'linear'
+}
+
 const containerVariants = {
   initial: {
     translateX: -1000,
@@ -17,9 +23,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       when: 'beforeChildren',
-      staggerChildren: 0.1,
-      translateX: springConfig,
-      opacity: 'linear'
+      ...containerConfig
     }
   },
   exit: {
@@ -27,11 +31,14 @@ const containerVariants = {
     opacity: 0,
     transition: {
       when: 'afterChildren',
-      staggerChildren: 0.1,
-      translateX: springConfig,
-      opacity: 'linear'
+      ...containerConfig
     }
   }
+}
+
+const itemTransition = {
+  translateY: springConfig,
+  opacity: 'linear'
 }
 
 const itemVariants = {
@@ -42,18 +49,12 @@ const itemVariants = {
   animate: {
     opacity: 1,
     translateY: 0,
-    transition: {
-      translateY: springConfig,
-      opacity: 'linear'
-    }
+    transition: itemTransition
   },
   exit: {
     translateY: -10,
     opacity: 0,
-    transition: {
-      translateY: springConfig,
-      opacity: 'linear'
-    }
+    transition: itemTransition
   }
 }
 

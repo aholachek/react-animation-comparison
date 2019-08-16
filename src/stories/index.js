@@ -17,10 +17,10 @@ storiesOf('Animation Examples', module)
   .add('React-Transition-Group + Animejs', () => (
     <Container animationComponent={AnimeExample} />
   ))
+  .add('Framer-Motion', () => <Container animationComponent={FramerMotion} />)
   .add('React-Spring', () => (
     <Container animationComponent={ReactSpringExample} />
   ))
-  .add('Framer-Motion', () => <Container animationComponent={FramerMotion} />)
   .add('React-Transition-Group + GSAP', () => (
     <Container animationComponent={ReactTransitionGroup} />
   ))
