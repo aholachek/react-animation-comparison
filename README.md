@@ -51,7 +51,7 @@ Here's a rundown of what should happen (it's more complex than it appears at fir
 - [my code](https://github.com/aholachek/react-animation-comparison/blob/master/src/react-spring-example.js)
 - [react-spring docs](https://react-spring.surge.sh/)
 
-4. 🥉 **react-transition-group & gsap**
+4. **react-transition-group & gsap**
 
 - Basically the same as the `animejs` example, just with the animation library swapped out. `GSAP` has a less permissive license and it's older and heavier than `animejs`, but it's battle-tested and powerful.
 - [my animation attempt](https://alex.holachek.com/react-animation-comparison/?selectedKind=Animation%20Examples&selectedStory=React-Transition-Group%20%2B%20GSAP&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
