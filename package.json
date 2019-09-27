@@ -12,9 +12,9 @@
     "react-dom": "16.9.0",
     "react-motion": "^0.5.2",
     "react-move": "^6.0.0",
-    "react-scripts": "3.1.1",
+    "react-scripts": "3.1.2",
     "react-spring": "^8.0.27",
-    "react-transition-group": "^4.2.2",
+    "react-transition-group": "^4.3.0",
     "sanitize.css": "^11.0.0",
     "velocity-animate": "^1.5.2",
     "velocity-react": "^1.4.3"
@@ -29,18 +29,18 @@
     "format": "prettier --write src/**/*.*"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@storybook/addon-actions": "^5.1.11",
-    "@storybook/addon-links": "^5.1.11",
-    "@storybook/addon-options": "^5.1.11",
-    "@storybook/react": "^5.1.11",
+    "@babel/core": "^7.6.2",
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addon-options": "^5.2.1",
+    "@storybook/react": "^5.2.1",
     "@storybook/storybook-deployer": "^2.8.1",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.5",
-    "eslint": "^6.1.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.4.0",
     "eslint-plugin-react": "^7.14.3",
     "prettier": "1.18.2",
-    "react-hot-loader": "^4.6.3",
+    "react-hot-loader": "^4.12.14",
     "storybook-readme": "^5.0.8"
   }
 }
