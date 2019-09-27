@@ -34,7 +34,6 @@ const animateGridIn = gridContainer =>
         easing,
         opacity: createOpacityAnimationConfig(true),
         translateY: [-30, 0],
-        complete: () => triggerAnimationDoneEvent(gridContainer),
         delay: anime.stagger(70)
       },
       '-=500'
@@ -66,7 +65,6 @@ const animateCardIn = card =>
     targets: card,
     opacity: createOpacityAnimationConfig(true),
     translateY: [50, 0],
-    complete: () => triggerAnimationDoneEvent(card),
     easing
   })
 
@@ -75,7 +73,6 @@ const animateCardOut = card =>
     targets: card,
     translateY: -10,
     opacity: createOpacityAnimationConfig(false),
-    complete: () => triggerAnimationDoneEvent(card),
     easing
   })
 
