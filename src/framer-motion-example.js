@@ -4,7 +4,9 @@ import React from 'react'
 const springConfig = {
   type: 'spring',
   stiffness: 200,
-  damping: 13
+  damping: 13,
+  restDelta: 4,
+  restSpeed: 4
 }
 
 const containerConfig = {
